@@ -1,0 +1,6 @@
+#!/bin/bash
+for i in "$@" 
+do
+  echo "Printing label for node "$i
+  lpr -o landscape -o position=top-right -P PDF $i
+done

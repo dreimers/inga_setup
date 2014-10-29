@@ -1,0 +1,34 @@
+--- /usr/share/cups/model/lw450dt.ppd
++++ /home/dennis/Projekte/IBR/dymo_inga/lw450dt_patched.ppd
+@@ -234,6 +234,7 @@
+ *OrderDependency: 10 AnySetup *PageSize
+ *DefaultPageSize: w68h252.2
+ *PageSize w18h252/06 mm (1/4") Label: "<</PageSize[18 252]/ImagingBBox null/cupsMediaType 0/cupsInteger0 0>>setpagedevice"
++*PageSize w18h90/06 mm (1/4") Inga: "<</PageSize[18 71]/ImagingBBox null/cupsMediaType 0/cupsInteger0 0>>setpagedevice"
+ *PageSize w18h4000/06 mm (1/4") Continuous: "<</PageSize[18 4000]/ImagingBBox null/cupsMediaType 256/cupsInteger0 0>>setpagedevice"
+ *PageSize w26h252/09 mm (3/8") Label: "<</PageSize[26 252]/ImagingBBox null/cupsMediaType 1/cupsInteger0 0>>setpagedevice"
+ *PageSize w26h4000/09 mm (3/8") Continuous: "<</PageSize[26 4000]/ImagingBBox null/cupsMediaType 257/cupsInteger0 0>>setpagedevice"
+@@ -254,6 +255,7 @@
+ *OrderDependency: 10 AnySetup *PageRegion
+ *DefaultPageRegion: w68h252.2
+ *PageRegion w18h252/06 mm (1/4") Label: "<</PageSize[18 252]/ImagingBBox null/cupsMediaType 0/cupsInteger0 0>>setpagedevice"
++*PageRegion w18h90/06 mm (1/4") Inga: "<</PageSize[18 71]/ImagingBBox null/cupsMediaType 0/cupsInteger0 0>>setpagedevice"
+ *PageRegion w18h4000/06 mm (1/4") Continuous: "<</PageSize[18 4000]/ImagingBBox null/cupsMediaType 256/cupsInteger0 0>>setpagedevice"
+ *PageRegion w26h252/09 mm (3/8") Label: "<</PageSize[26 252]/ImagingBBox null/cupsMediaType 1/cupsInteger0 0>>setpagedevice"
+ *PageRegion w26h4000/09 mm (3/8") Continuous: "<</PageSize[26 4000]/ImagingBBox null/cupsMediaType 257/cupsInteger0 0>>setpagedevice"
+@@ -272,6 +274,7 @@
+ 
+ *DefaultImageableArea: w68h252.2
+ *ImageableArea w18h252/06 mm (1/4") Label: "1.60 30.00 16.00 222.00"
++*ImageableArea w18h90/06 mm (1/4") Inga: "1 1 17 70"
+ *ImageableArea w18h4000/06 mm (1/4") Continuous: "1.60 30.00 16.00 3970.00"
+ *ImageableArea w26h252/09 mm (3/8") Label: "2.80 30.00 22.80 222.00"
+ *ImageableArea w26h4000/09 mm (3/8") Continuous: "2.80 30.00 22.80 3970.00"
+@@ -289,6 +292,7 @@
+ 
+ *DefaultPaperDimension: w68h252.2
+ *PaperDimension w18h252/06 mm (1/4") Label: "17.60 252.00"
++*PaperDimension w18h90/06 mm (1/4") Inga: "18 71.00"
+ *PaperDimension w18h4000/06 mm (1/4") Continuous: "17.60 4000.00"
+ *PaperDimension w26h252/09 mm (3/8") Label: "25.60 252.00"
+ *PaperDimension w26h4000/09 mm (3/8") Continuous: "25.60 4000.00"

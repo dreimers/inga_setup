@@ -1,0 +1,13 @@
+#!/bin/bash
+
+SERIAL=$1
+JOBNAME="node-"$SERIAL
+
+echo "Generating label for "$SERIAL
+mkdir labels
+cd labels
+sed 's/@@SERIAL@@/'$SERIAL'/g' ../label/label.tex | pdflatex -jobname $JOBNAME
+rm $JOBNAME".log"
+rm $JOBNAME".aux"
+cd -
+
