@@ -1,4 +1,4 @@
-# inga intial setup
+# inga initial setup
 
 ## Generating an Printing labels
 ./print_label $labelfile
