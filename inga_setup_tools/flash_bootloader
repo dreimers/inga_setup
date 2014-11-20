@@ -1,10 +1,19 @@
 #!/bin/bash
+
+source utils.sh
+
+if [ "$#" -lt "1" ]; then
+    print_info "Missing parameters"
+    print_info "Usage: $0 {path of serial device}+" 
+    exit
+fi
+
 for i 
 do
-  echo "Flashing bootloader on node "$i
+  print_info "Flashing bootloader on node $i"
   FTDI_SERIAL=$(./get_ftdi_serial $i)
-  echo "Trying to flash via ftdi with serial: "$FTDI_SERIAL
+  print_info "Trying to flash via ftdi bitbang with serial: $FTDI_SERIAL"
   cd ../repos/software-cm-2013-inga-bootloader/
   make bang SERIAL=$FTDI_SERIAL AVRDUDE_FLAGS="-e"
-  cd -
+  cd - > /dev/null
 done
