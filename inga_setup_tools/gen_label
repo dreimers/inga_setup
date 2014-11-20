@@ -2,12 +2,25 @@
 
 SERIAL=$1
 JOBNAME="node-"$SERIAL
+LOGFILE="labels.log"
+source utils.sh
 
-echo "Generating label for "$SERIAL
-mkdir labels
+print_info "Generating label for "$SERIAL
+# make directory, no error if existing
+mkdir -p labels
 cd labels
-sed 's/@@SERIAL@@/'$SERIAL'/g' ../label/label.tex | pdflatex -jobname $JOBNAME
+
+# generate label from tex file
+print_info "### Running job $JOBNAME ###" >> $LOGFILE
+sed 's/@@SERIAL@@/'$SERIAL'/g' ../label/label.tex | pdflatex -jobname $JOBNAME > /dev/null
+
+# save logs
+cat $JOBNAME".log" >> $LOGFILE
+
+#clean uip
+print_info "cleaning up"
 rm $JOBNAME".log"
 rm $JOBNAME".aux"
-cd -
+cd - > /dev/null
 
+print_info "done"

@@ -1,17 +1,18 @@
 #!/bin/bash
+source utils.sh
 
 REPO_CONTIKI="../repos/contiki-inga"
 INGA_TOOL_PATH=$REPO_CONTIKI"/tools/inga/inga_tool"
 
 if [ "$#" -lt "1" ]; then
-    echo "Missing parameters"
-    echo "Usage: "$0 "{path of serial device}+" 
+    print_info "Missing parameters"
+    print_info "Usage: $0 {path of serial device}+" 
     exit
 fi
 
 if [ ! -x $INGA_TOOL_PATH"/inga_tool" ]
 then
-  echo "inga_tool not found in "$INGA_TOOL_PATH "trying to compile it..."
+  print_info "inga_tool not found in $INGA_TOOL_PATH trying to compile it..."
   cd $INGA_TOOL_PATH
   make
   cd -
