@@ -13,7 +13,7 @@ do
   print_info "Flashing bootloader on node $i"
   FTDI_SERIAL=$(./get_ftdi_serial $i)
   print_info "Trying to flash via ftdi bitbang with serial: $FTDI_SERIAL"
-  cd ../repos/software-cm-2013-inga-bootloader/
+  cd ../repos/inga_bootloader/
   make bang SERIAL=$FTDI_SERIAL AVRDUDE_FLAGS="-e"
   cd - > /dev/null
 done
