@@ -1,0 +1,14 @@
+#!/bin/bash
+
+source utils.sh
+
+mkdir -p repos/
+cd repos
+
+print_info "Fetching needed repos:"
+print_info "github/dreimers/inga_bootloader"
+git clone git://github.com/dreimers/inga_bootloader.git
+print_info "github/dreimers/contiki-inga"
+git clone git://github.com/dreimers/contiki-inga.git
+
+cd - > /dev/null
