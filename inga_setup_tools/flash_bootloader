@@ -11,7 +11,13 @@ fi
 for i 
 do
   print_info "Flashing bootloader on node $i"
-  FTDI_SERIAL=$(./get_ftdi_serial $i)
+  source ./get_ftdi_serial $i 
+
+  if [ ! -n "${FTDI_SERIAL}" ]; then
+    print_info "Error: SERIAL $FTDI_SERIAL is unknown."
+    exit
+  fi
+
   print_info "Trying to flash via ftdi bitbang with serial: $FTDI_SERIAL"
   cd ../repos/inga_bootloader/
   make bang SERIAL=$FTDI_SERIAL AVRDUDE_FLAGS="-e"

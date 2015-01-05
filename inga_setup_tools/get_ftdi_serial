@@ -10,16 +10,14 @@ if [ "$#" -lt "1" ]; then
     exit
 fi
 
-if [ ! -x $INGA_TOOL_PATH"/inga_tool" ]
-then
+if [ ! -x $INGA_TOOL_PATH"/inga_tool" ]; then
   print_info "inga_tool not found in $INGA_TOOL_PATH trying to compile it..."
-  cd $INGA_TOOL_PATH
-  make
-  cd -
+  cd $INGA_TOOL_PATH > /dev/null
+  make > /dev/null
+  cd - > /dev/null
 fi
-
-for DEVICE in $@ 
-do 
-  SERIAL="$($INGA_TOOL_PATH/inga_tool -s -d $DEVICE | grep "Serial:" | cut -f 8 -d" ")"
-  echo $SERIAL
-done
+  
+DEVICE=$1
+FTDI_SERIAL="$($INGA_TOOL_PATH/inga_tool -s -d $DEVICE | grep "Serial:" | cut -f 8 -d" ")"
+echo $FTDI_SERIAL
+export FTDI_SERIAL
