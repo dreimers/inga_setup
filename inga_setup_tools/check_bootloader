@@ -1,0 +1,31 @@
+#!/bin/bash
+
+source utils.sh
+
+if [ "$#" -lt "1" ]; then
+    print_info "Missing parameters"
+    print_info "Usage: $0 {path of serial device}+" 
+    exit 128
+fi
+
+NODE=$@
+echo $NODE
+if [ ! -e $NODE ]; then
+  print_info "Node $NODE does not exist"
+  exit 129
+fi
+
+print_info "Checking bootloader on node $NODE with avrdude"
+
+avrdude -c avr109 -p atmega1284p -b 230400 -u -P $NODE
+RETVAL=$?
+
+print_info "avrdude exited with code $RETVAL"
+if [ $RETVAL -eq 0 ]; then
+
+  print_info "$NODE has a working bootloader"
+else
+  print_info "$NODE seems missing bootloader. Try to flash with ./flash_bootloader $NODE"
+fi
+
+exit $RETVAL
